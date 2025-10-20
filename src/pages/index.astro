@@ -1,11 +1,80 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
+import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+import HeroImg from "../assets/hero.png";
+import HeroAnimation from "../assets/heroAnimation.gif";
+import CoursesImg from "../assets/courses.png";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+    <SectionContainer sectionId="home">
+        <div class="hero-animation">
+            <img src={HeroAnimation.src} alt="" />
+        </div>
+        <div class="hero-container">
+            <div>
+                <h1>¿Ya probaste<br />un café igual?</h1>
+                <div class="call-to-action">
+                    <a href="/comprar">Comprar café</a>
+                </div>
+            </div>
+            <div>
+                <img src={HeroImg.src} alt="Chica tomando café" />
+            </div>
+        </div>
+        <div class="courses-container">
+            <div>
+                <img src={CoursesImg.src} alt="" />
+            </div>
+            <div>
+                <h1>¿Te interesa aprender<br />sobre el café?</h1>
+                <div class="call-to-action">
+                    <a href="/talleres">Comenzar taller</a>
+                </div>
+            </div>
+        </div>
+        <div class="reviews-container"></div>
+    </SectionContainer>
 </Layout>
+
+<style>
+    .hero-container,
+    .courses-container {
+        display: flex;
+        gap: 2rem;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        min-height: 100vh;
+        align-items: center;
+    }
+    div > img {
+        border-radius: 1rem;
+    }
+    .hero-container h1 {
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .courses-container h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .call-to-action {
+        background-color: black;
+        color: white;
+        display: block;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        width: fit-content;
+    }
+    .call-to-action a {
+        text-decoration: none;
+        color: white;
+    }
+    .hero-animation img {
+        width: 100%;
+    }
+</style>

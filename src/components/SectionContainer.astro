@@ -1,0 +1,17 @@
+---
+interface props {
+    sectionId: string;
+}
+
+const { sectionId } = Astro.props;
+---
+
+<section id={sectionId}>
+    <slot />
+</section>
+
+<style>
+    section {
+        padding: 1rem;
+    }
+</style>

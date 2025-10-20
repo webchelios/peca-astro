@@ -1,0 +1,42 @@
+---
+import LogoImg from "../assets/logo.png";
+---
+
+<nav>
+    <div>
+        <div><img src={LogoImg.src} alt="" /></div>
+    </div>
+    <div class="links-container">
+        <a href="/">Inicio</a>
+        <a href="/comprar">Comprar café</a>
+        <a href="/talleres">Talleres</a>
+        <a href="/contacto" class="link-contact">Contacto</a>
+    </div>
+</nav>
+
+<style>
+    nav {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .links-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .links-container a {
+        color: black;
+        display: block;
+        text-decoration: none;
+    }
+    .link-contact {
+        background-color: black;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+    }
+    .links-container > .link-contact {
+        color: white;
+    }
+</style>
