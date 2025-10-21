@@ -10,11 +10,20 @@ const { title, image } = Astro.props;
     <div class="img-container"><img src={image} alt={title} /></div>
     <h1>{title}</h1>
     <slot />
+    <div><a href="">Ver más</a></div>
 </article>
-
 <style>
-    .img-container img {
-        width: 20rem;
+    article {
+        padding: 1rem;
+        width: 15rem;
         border-radius: 1rem;
+        text-align: center;
+        box-shadow: 2px 2px 5px black;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .img-container img {
+        width: 10rem;
     }
 </style>

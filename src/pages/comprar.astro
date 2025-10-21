@@ -5,31 +5,44 @@ import ItemCard from "../components/ItemCard.astro";
 ---
 
 <Layout>
-    <SectionContainer>
+    <SectionContainer sectionId="shop">
         <h1>Buscá nuestra colección</h1>
-        <ItemCard title="Café de Brasil" image="images/brasil.jpg">
-            <div>
-                <p>Región: Huila</p>
-                <p>Varietal: Caturra</p>
-                <p>Beneficio: Lavado</p>
-                <p>Altura: 2100 m</p>
-            </div>
-        </ItemCard>
-        <ItemCard title="Café de Colombia" image="images/colombia.webp">
-            <div>
-                <p>Región: Huila</p>
-                <p>Varietal: Caturra</p>
-                <p>Beneficio: Lavado</p>
-                <p>Altura: 2100 m</p>
-            </div></ItemCard
-        >
-        <ItemCard title="Blend Cofi" image="images/cofi.webp">
-            <div>
-                <p>Región: Huila</p>
-                <p>Varietal: Caturra</p>
-                <p>Beneficio: Lavado</p>
-                <p>Altura: 2100 m</p>
-            </div></ItemCard
-        >
+        <div class="cards-container">
+            <ItemCard title="Café de Brasil" image="images/brasil.jpg">
+                <div>
+                    <p>Región: Huila</p>
+                    <p>Varietal: Caturra</p>
+                    <p>Beneficio: Lavado</p>
+                    <p>Altura: 2100 m</p>
+                </div>
+            </ItemCard>
+            <ItemCard title="Café de Colombia" image="images/colombia.webp">
+                <div>
+                    <p>Región: Huila</p>
+                    <p>Varietal: Caturra</p>
+                    <p>Beneficio: Lavado</p>
+                    <p>Altura: 2100 m</p>
+                </div></ItemCard
+            >
+            <ItemCard title="Blend Cofi" image="images/cofi.webp">
+                <div>
+                    <p>Región: Huila</p>
+                    <p>Varietal: Caturra</p>
+                    <p>Beneficio: Lavado</p>
+                    <p>Altura: 2100 m</p>
+                </div></ItemCard
+            >
+        </div>
     </SectionContainer>
 </Layout>
+
+<style>
+    h1 {
+        font-size: 5rem;
+    }
+    .cards-container {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 4rem;
+    }
+</style>

@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 ---
 
@@ -12,12 +13,13 @@ import Navbar from "../components/Navbar.astro";
         <title>Peca'fé</title>
     </head>
     <body>
+        <Navbar />
         <div class="layout-wrapper">
-            <Navbar />
             <main class="main-content">
                 <slot />
             </main>
         </div>
+        <Footer />
     </body>
 </html>
 
@@ -32,8 +34,9 @@ import Navbar from "../components/Navbar.astro";
 
     html,
     body {
-        background-color: #ffecc6;
+        background-color: #fee9c8;
         font-family: "Nunito", sans-serif;
+
         /* Elimina el max-width del body */
     }
 
@@ -41,6 +44,7 @@ import Navbar from "../components/Navbar.astro";
         padding-left: 1rem;
         padding-right: 1rem;
         max-width: 1920px;
+        min-height: 100vh;
         margin: 0 auto;
     }
 

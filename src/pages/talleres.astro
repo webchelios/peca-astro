@@ -1,0 +1,74 @@
+---
+import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+import CourseCard from "../components/CourseCard.astro";
+import Arrow from "../assets/arrow.svg";
+---
+
+<Layout>
+    <SectionContainer sectionId="courses">
+        <h1>¡Impulsá tu camino<br />como barista!</h1>
+        <div class="courses-container">
+            <CourseCard title="Barista inicial" image="images/barista.jpg"
+                ><p>Este curso está bueno para empezar</p></CourseCard
+            >
+            <CourseCard title="Latte Art" image="images/latte.jpg"
+                ><p>Para los que quieran aprender el arte latte</p></CourseCard
+            >
+            <CourseCard
+                title="Calibración del Espresso"
+                image="images/calibracion.jpg"
+                ><p>
+                    Es para los que quieran optimizar la extracción de su
+                    espresso
+                </p></CourseCard
+            >
+        </div>
+        <div class="arrow-container"><img src={Arrow.src} alt="flecha" /></div>
+        <div class="call-to-action"><a href="">Consultar fechas</a></div>
+    </SectionContainer>
+</Layout>
+
+<style>
+    h1 {
+        font-size: 5rem;
+        font-weight: 700;
+    }
+    .courses-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 4rem;
+    }
+    .call-to-action {
+        text-align: center;
+        padding: 0.8rem 1.3rem;
+        border-radius: 2rem;
+        background-color: black;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 4rem;
+        cursor: pointer;
+    }
+
+    .call-to-action a {
+        display: block;
+        text-decoration: none;
+        color: white;
+    }
+
+    .arrow-container {
+        position: relative;
+    }
+
+    .arrow-container img {
+        position: absolute;
+        top: 0;
+        left: 30%;
+        transform: rotateZ(185deg);
+        width: 10rem;
+        height: 10rem;
+    }
+</style>

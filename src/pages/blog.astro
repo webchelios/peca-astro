@@ -1,0 +1,68 @@
+---
+import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+import BlogEntry from "../components/BlogEntry.astro";
+---
+
+<Layout>
+    <SectionContainer sectionId="blog">
+        <div class="cuarto-barista">
+            <img src="images/cuarto.png" alt="El cuarto barista dibujado" />
+        </div>
+        <h1>"El cuarto barista"</h1>
+        <p>
+            Soy un barista que vive en zona sur y este es mi blog donde hablo de
+            mis experiencias Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Architecto quae dolor temporibus voluptas. Minus aut amet modi
+            explicabo at quasi sequi possimus, delectus molestias fugiat rem
+            voluptatibus culpa quibusdam alias.
+        </p>
+        <div class="entries-container">
+            <BlogEntry
+                title="10 consejos sobre abrir una cafetería"
+                image="images/cafe.jpg"
+                >Para empezar lo primero que se debe hacer es...</BlogEntry
+            >
+            <BlogEntry
+                title="Mi método de extracción favorito"
+                image="images/filtro.jpg"
+                >Siempre que voy a una cafetería lo primero que pido...</BlogEntry
+            >
+            <BlogEntry
+                title="Buscando el mejor café de Buenos Aires"
+                image="images/cata.jpg"
+                >Una cafetería de especialidad que me llamó la atención fue...</BlogEntry
+            >
+        </div>
+    </SectionContainer>
+</Layout>
+
+<style>
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    p {
+        text-align: center;
+        font-size: 1.3rem;
+        max-width: 30rem;
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+    }
+    .entries-container {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    .cuarto-barista {
+        text-align: center;
+    }
+    .cuarto-barista img {
+        border-radius: 100%;
+    }
+</style>
