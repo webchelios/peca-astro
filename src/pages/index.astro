@@ -4,8 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import HeroImg from "../assets/hero.png";
 import HeroAnimation from "../assets/heroAnimation.gif";
 import CoursesImg from "../assets/courses.png";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import ParallaxItem from "../components/ParallaxItem.astro";
 ---
 
 <Layout>
@@ -14,6 +13,11 @@ import CoursesImg from "../assets/courses.png";
             <img src={HeroAnimation.src} alt="" />
         </div>
         <div class="hero-container">
+            <ParallaxItem
+                image="images/asset2.png"
+                speed={0.3}
+                className="asset-img"
+            />
             <div>
                 <h1>¿Ya probaste<br />un café igual?</h1>
                 <div class="call-to-action">
@@ -34,6 +38,11 @@ import CoursesImg from "../assets/courses.png";
                     <a href="/talleres">Comenzar taller</a>
                 </div>
             </div>
+            <ParallaxItem
+                image="images/asset1.png"
+                speed={0.3}
+                className="asset-img"
+            />
         </div>
         <div class="reviews-container"></div>
     </SectionContainer>
@@ -43,11 +52,13 @@ import CoursesImg from "../assets/courses.png";
     .hero-container,
     .courses-container {
         display: flex;
+        justify-content: center;
         gap: 2rem;
         margin-top: 4rem;
         margin-bottom: 4rem;
         min-height: 100vh;
         align-items: center;
+        position: relative;
     }
     div > img {
         border-radius: 1rem;
@@ -69,6 +80,7 @@ import CoursesImg from "../assets/courses.png";
         border-radius: 1rem;
         padding: 0.5rem 1rem;
         width: fit-content;
+        cursor: pointer;
     }
     .call-to-action a {
         text-decoration: none;
@@ -76,5 +88,24 @@ import CoursesImg from "../assets/courses.png";
     }
     .hero-animation img {
         width: 100%;
+    }
+    .asset-img {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero-container h1 {
+            font-size: 3rem;
+        }
+        .courses-container h1 {
+            font-size: 2.5rem;
+        }
+        .asset-img {
+            top: 15%;
+            left: 5%;
+        }
     }
 </style>

@@ -1,0 +1,74 @@
+---
+interface Props {
+    speed?: number;
+    className?: string;
+    image: string;
+}
+
+const { speed = 0.5, className = "", image = "asset1" } = Astro.props;
+---
+
+<div class={`parallax-cup ${className}`} data-speed={speed}>
+    <img src={image} alt="Efecto parallax sobre una imagen decorativa" />
+</div>
+
+<style>
+    .parallax-cup {
+        position: relative;
+        z-index: 10;
+    }
+
+    .parallax-cup img {
+        width: 240px;
+        height: auto;
+        transition: transform 0.1s ease-out;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .parallax-cup img {
+            width: 160px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const parallaxCups = document.querySelectorAll(".parallax-cup");
+
+        const handleParallax = () => {
+            const scrolled = window.pageYOffset;
+
+            parallaxCups.forEach((cup) => {
+                const speed =
+                    parseFloat(cup.getAttribute("data-speed")!) || 0.5;
+                const yPos = -(scrolled * speed);
+                const img = cup.querySelector("img");
+
+                if (img) {
+                    img.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+        };
+
+        // Usar requestAnimationFrame para mejor performance
+        let ticking = false;
+
+        const updateParallax = () => {
+            handleParallax();
+            ticking = false;
+        };
+
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        // Inicializar
+        handleParallax();
+    });
+</script>
