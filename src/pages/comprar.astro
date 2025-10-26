@@ -16,22 +16,24 @@ import ItemCard from "../components/ItemCard.astro";
                     <p>Altura: 2100 m</p>
                 </div>
             </ItemCard>
+
             <ItemCard title="Café de Colombia" image="../images/colombia.webp">
                 <div>
                     <p>Región: Huila</p>
                     <p>Varietal: Caturra</p>
                     <p>Beneficio: Lavado</p>
                     <p>Altura: 2100 m</p>
-                </div></ItemCard
-            >
+                </div>
+            </ItemCard>
+
             <ItemCard title="Blend Cofi" image="../images/cofi.webp">
                 <div>
                     <p>Región: Huila</p>
                     <p>Varietal: Caturra</p>
                     <p>Beneficio: Lavado</p>
                     <p>Altura: 2100 m</p>
-                </div></ItemCard
-            >
+                </div>
+            </ItemCard>
         </div>
     </SectionContainer>
 </Layout>
@@ -40,9 +42,46 @@ import ItemCard from "../components/ItemCard.astro";
     h1 {
         font-size: 5rem;
     }
+
     .cards-container {
         display: flex;
         justify-content: space-around;
         margin-bottom: 4rem;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 1024px) {
+        h1 {
+            font-size: 3.5rem;
+            text-align: center;
+        }
+
+        .cards-container {
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 0 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .cards-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        .cards-container {
+            gap: 1.5rem;
+        }
     }
 </style>

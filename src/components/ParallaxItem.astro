@@ -45,12 +45,13 @@ const { speed = 0.5, className = "", image = "asset1" } = Astro.props;
                 if (!img) return;
 
                 // 🧠 No aplicar si el elemento está oculto o en pantallas pequeñas
-                if (window.innerWidth <= 768 || !cup.offsetParent) {
+                if (window.innerWidth <= 768) {
                     img.style.transform = "";
                     return;
                 }
 
-                const speed = parseFloat(cup.getAttribute("data-speed")) || 0.5;
+                const speed =
+                    parseFloat(cup.getAttribute("data-speed")!) || 0.5;
                 const yPos = -(scrolled * speed);
                 img.style.transform = `translateY(${yPos}px)`;
             });
