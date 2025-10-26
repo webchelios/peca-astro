@@ -9,23 +9,32 @@ import Arrow from "../assets/arrow.svg";
     <SectionContainer sectionId="courses">
         <h1>¡Impulsá tu camino<br />como barista!</h1>
         <div class="courses-container">
-            <CourseCard title="Barista inicial" image="../images/barista.jpg"
-                ><p>Este curso está bueno para empezar</p></CourseCard
-            >
-            <CourseCard title="Latte Art" image="../images/latte.jpg"
-                ><p>Para los que quieran aprender el arte latte</p></CourseCard
-            >
+            <CourseCard title="Barista inicial" image="../images/barista.jpg">
+                <p>Este curso está bueno para empezar</p>
+            </CourseCard>
+
+            <CourseCard title="Latte Art" image="../images/latte.jpg">
+                <p>Para los que quieran aprender el arte latte</p>
+            </CourseCard>
+
             <CourseCard
                 title="Calibración del Espresso"
                 image="../images/calibracion.jpg"
-                ><p>
+            >
+                <p>
                     Es para los que quieran optimizar la extracción de su
                     espresso
-                </p></CourseCard
-            >
+                </p>
+            </CourseCard>
         </div>
-        <div class="arrow-container"><img src={Arrow.src} alt="flecha" /></div>
-        <div class="call-to-action"><a href="">Consultar fechas</a></div>
+
+        <div class="arrow-container">
+            <img src={Arrow.src} alt="flecha" />
+        </div>
+
+        <div class="call-to-action">
+            <a href="">Consultar fechas</a>
+        </div>
     </SectionContainer>
 </Layout>
 
@@ -34,6 +43,7 @@ import Arrow from "../assets/arrow.svg";
         font-size: 5rem;
         font-weight: 700;
     }
+
     .courses-container {
         display: flex;
         align-items: center;
@@ -41,6 +51,7 @@ import Arrow from "../assets/arrow.svg";
         gap: 1rem;
         margin-bottom: 4rem;
     }
+
     .call-to-action {
         text-align: center;
         padding: 0.8rem 1.3rem;
@@ -70,5 +81,67 @@ import Arrow from "../assets/arrow.svg";
         transform: rotateZ(185deg);
         width: 10rem;
         height: 10rem;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 1024px) {
+        h1 {
+            font-size: 3.5rem;
+            text-align: center;
+        }
+
+        .courses-container {
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .arrow-container img {
+            width: 7rem;
+            height: 7rem;
+            left: 40%;
+            top: 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2.8rem;
+        }
+
+        .courses-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .arrow-container img {
+            position: static;
+            transform: rotateZ(-35deg);
+            display: block;
+            margin: 1rem auto 2rem auto;
+            width: 6rem;
+            height: 6rem;
+        }
+
+        .call-to-action {
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        .courses-container {
+            gap: 1.5rem;
+        }
+
+        .arrow-container img {
+            width: 4.5rem;
+            height: 4.5rem;
+            transform: rotateZ(-35deg);
+        }
     }
 </style>
