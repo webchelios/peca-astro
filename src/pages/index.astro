@@ -18,21 +18,22 @@ import ParallaxItem from "../components/ParallaxItem.astro";
                 speed={0.3}
                 className="asset-img"
             />
-            <div>
+            <div class="hero-text">
                 <h1>¿Ya probaste<br />un café igual?</h1>
                 <div class="call-to-action">
                     <a href="/comprar">Comprar café</a>
                 </div>
             </div>
-            <div>
+            <div class="hero-img">
                 <img src={HeroImg.src} alt="Chica tomando café" />
             </div>
         </div>
+
         <div class="courses-container">
-            <div>
+            <div class="courses-img">
                 <img src={CoursesImg.src} alt="" />
             </div>
-            <div>
+            <div class="courses-text">
                 <h1>¿Te interesa aprender<br />sobre el café?</h1>
                 <div class="call-to-action">
                     <a href="/talleres">Comenzar taller</a>
@@ -44,6 +45,7 @@ import ParallaxItem from "../components/ParallaxItem.astro";
                 className="asset-img"
             />
         </div>
+
         <div class="reviews-container"></div>
     </SectionContainer>
 </Layout>
@@ -60,19 +62,25 @@ import ParallaxItem from "../components/ParallaxItem.astro";
         align-items: center;
         position: relative;
     }
+
     div > img {
         border-radius: 1rem;
+        max-width: 100%;
+        height: auto;
     }
+
     .hero-container h1 {
         font-size: 5rem;
         font-weight: 700;
         margin-bottom: 1rem;
     }
+
     .courses-container h1 {
         font-size: 4rem;
         font-weight: 700;
         margin-bottom: 1rem;
     }
+
     .call-to-action {
         background-color: black;
         color: white;
@@ -82,30 +90,75 @@ import ParallaxItem from "../components/ParallaxItem.astro";
         width: fit-content;
         cursor: pointer;
     }
+
     .call-to-action a {
         text-decoration: none;
         color: white;
     }
+
     .hero-animation img {
         width: 100%;
     }
+
     .asset-img {
         position: absolute;
         top: 20%;
         left: 10%;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
+    /* 📱 Responsive */
+    @media (max-width: 1024px) {
+        .hero-container,
+        .courses-container {
+            flex-direction: column;
+            text-align: center;
+            min-height: auto;
+            padding: 2rem 1rem;
+        }
+
         .hero-container h1 {
             font-size: 3rem;
         }
+
         .courses-container h1 {
             font-size: 2.5rem;
         }
+
         .asset-img {
-            top: 15%;
-            left: 5%;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            opacity: 0.5;
+            width: 120px;
+        }
+
+        .hero-img img,
+        .courses-img img {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .call-to-action {
+            margin: 1rem auto;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .hero-container h1 {
+            font-size: 2.2rem;
+        }
+
+        .courses-container h1 {
+            font-size: 2rem;
+        }
+
+        .hero-container,
+        .courses-container {
+            gap: 1.5rem;
+        }
+
+        .asset-img {
+            display: none; /* se oculta en pantallas muy pequeñas */
         }
     }
 </style>

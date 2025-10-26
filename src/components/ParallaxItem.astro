@@ -16,6 +16,7 @@ const { speed = 0.5, className = "", image = "asset1" } = Astro.props;
     .parallax-cup {
         position: relative;
         z-index: 10;
+        will-change: transform;
     }
 
     .parallax-cup img {
@@ -24,10 +25,10 @@ const { speed = 0.5, className = "", image = "asset1" } = Astro.props;
         transition: transform 0.1s ease-out;
     }
 
-    /* Responsive */
+    /* 📱 Ocultar en móviles */
     @media (max-width: 768px) {
-        .parallax-cup img {
-            width: 160px;
+        .parallax-cup {
+            display: none !important;
         }
     }
 </style>
@@ -40,18 +41,21 @@ const { speed = 0.5, className = "", image = "asset1" } = Astro.props;
             const scrolled = window.pageYOffset;
 
             parallaxCups.forEach((cup) => {
-                const speed =
-                    parseFloat(cup.getAttribute("data-speed")!) || 0.5;
-                const yPos = -(scrolled * speed);
                 const img = cup.querySelector("img");
+                if (!img) return;
 
-                if (img) {
-                    img.style.transform = `translateY(${yPos}px)`;
+                // 🧠 No aplicar si el elemento está oculto o en pantallas pequeñas
+                if (window.innerWidth <= 768 || !cup.offsetParent) {
+                    img.style.transform = "";
+                    return;
                 }
+
+                const speed = parseFloat(cup.getAttribute("data-speed")) || 0.5;
+                const yPos = -(scrolled * speed);
+                img.style.transform = `translateY(${yPos}px)`;
             });
         };
 
-        // Usar requestAnimationFrame para mejor performance
         let ticking = false;
 
         const updateParallax = () => {
@@ -67,6 +71,7 @@ const { speed = 0.5, className = "", image = "asset1" } = Astro.props;
         };
 
         window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", handleParallax, { passive: true });
 
         // Inicializar
         handleParallax();
