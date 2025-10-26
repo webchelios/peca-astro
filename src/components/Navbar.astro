@@ -4,8 +4,18 @@ import LogoImg from "../assets/logo.png";
 
 <nav>
     <div>
+        <!-- Logo placeholder - reemplazar con tu imagen real -->
         <div><img src={LogoImg.src} alt="" /></div>
     </div>
+
+    <!-- Checkbox invisible para controlar el menú -->
+    <input type="checkbox" id="menu-toggle" style="display: none;" />
+
+    <!-- Botón de menú hamburguesa -->
+    <label for="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
+        ☰
+    </label>
+
     <div class="links-container">
         <a href="/">Inicio</a>
         <a href="/comprar">Comprar café</a>
@@ -16,11 +26,13 @@ import LogoImg from "../assets/logo.png";
 </nav>
 
 <style>
+    /* Estilos base */
     nav {
         padding: 1rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
     .links-container {
         display: flex;
@@ -39,5 +51,56 @@ import LogoImg from "../assets/logo.png";
     }
     .links-container > .link-contact {
         color: white;
+    }
+
+    /* Logo placeholder */
+    .logo-placeholder {
+        width: 150px;
+        height: 50px;
+        background-color: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    /* Estilos responsive */
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    /* Media queries */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+
+        .links-container {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        #menu-toggle:checked ~ .links-container {
+            display: flex;
+        }
+
+        .links-container a {
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .link-contact {
+            margin-top: 0.5rem;
+        }
     }
 </style>
