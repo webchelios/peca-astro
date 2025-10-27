@@ -17,4 +17,10 @@ const { title, image } = Astro.props;
         width: 20rem;
         border-radius: 1rem;
     }
+
+    @media screen and (max-width: 600px) {
+        .img-container img {
+            width: 10rem;
+        }
+    }
 </style>
